@@ -6,19 +6,10 @@ function typing() {
     if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typing, 40);
+        setTimeout(typing, 50);
     }
 }
 typing();
-
-// PARTICLES
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 80 },
-    size: { value: 3 },
-    move: { speed: 2 }
-  }
-});
 
 // OWNER LOGIN
 function ownerLogin() {
@@ -29,6 +20,8 @@ function ownerLogin() {
         document.getElementById("about").contentEditable = true;
         document.getElementById("skills").contentEditable = true;
         document.getElementById("projects").contentEditable = true;
+    } else {
+        alert("Wrong Password");
     }
 }
 
@@ -48,5 +41,5 @@ window.addEventListener("scroll", () => {
 sections.forEach(sec => {
     sec.style.opacity = 0;
     sec.style.transform = "translateY(50px)";
-    sec.style.transition = "0.6s";
+    sec.style.transition = "0.6s ease";
 });
