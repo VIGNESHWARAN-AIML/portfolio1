@@ -1,34 +1,24 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #020617);
+    background: #0f172a;
     color: white;
     margin: 0;
 }
 
-/* NAV */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.5);
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
-/* HERO */
 .hero {
     height: 90vh;
     display: flex;
@@ -37,59 +27,30 @@ nav a {
     flex-direction: column;
 }
 
-.hero span {
+span {
     color: #38bdf8;
 }
 
-/* SECTION */
 section {
-    padding: 60px;
+    padding: 50px;
     text-align: center;
 }
 
-/* GRID */
 .grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* 3D CARD */
 .card {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.1);
     padding: 20px;
-    margin: 15px;
-    width: 220px;
+    margin: 10px;
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    transform-style: preserve-3d;
     transition: 0.4s;
 }
 
 .card:hover {
-    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
-
-/* LOGIN */
-.login, .admin {
-    display: none;
-    position: fixed;
-    top: 20%;
-    left: 40%;
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-/* INPUT */
-input {
-    padding: 10px;
-    margin: 5px;
-    width: 200px;
-}
-
-button {
-    padding: 10px;
-    cursor: pointer;
+    transform: rotateY(10deg) scale(1.1);
 }
