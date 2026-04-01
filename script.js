@@ -1,62 +1,50 @@
-// Typing
+// Typing Effect
 const text = "AI & Full Stack Developer";
 let i = 0;
 
-function typing(){
-    if(i < text.length){
-        document.getElementById("typing").innerHTML += text.charAt(i);
+function typing() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text[i];
         i++;
         setTimeout(typing, 50);
     }
 }
 typing();
 
-// Default Data
-let skills = JSON.parse(localStorage.getItem("skills")) || 
-["C Program","C++","Communication","Leadership","Teamwork","Troubleshooter"];
+// PARTICLES
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 80 },
+    size: { value: 3 },
+    move: { speed: 2 }
+  }
+});
 
-let projects = JSON.parse(localStorage.getItem("projects")) || 
-["Portfolio Website","AI Chatbot","Leave App"];
-
-// Display
-function display(){
-    let skillHTML = "";
-    skills.forEach(s => skillHTML += `<div class="card">${s}</div>`);
-    document.getElementById("skillList").innerHTML = skillHTML;
-
-    let projHTML = "";
-    projects.forEach(p => projHTML += `<div class="card">${p}</div>`);
-    document.getElementById("projectList").innerHTML = projHTML;
-}
-display();
-
-// LOGIN
-function openLogin(){
-    document.getElementById("loginBox").style.display="block";
-}
-
-function login(){
-    let pass = document.getElementById("password").value;
+// LOGIN SYSTEM
+function login() {
+    const pass = document.getElementById("adminPass").value;
     if(pass === "admin123"){
-        document.getElementById("adminPanel").style.display="block";
-        alert("Login Success");
+        document.getElementById("adminPanel").style.display = "block";
+        alert("Login Successful");
     } else {
         alert("Wrong Password");
     }
 }
 
-// ADD SKILL
+// ADD SKILLS
 function addSkill(){
-    let skill = document.getElementById("newSkill").value;
-    skills.push(skill);
-    localStorage.setItem("skills", JSON.stringify(skills));
-    display();
+    const val = document.getElementById("newSkill").value;
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerText = val;
+    document.getElementById("skillList").appendChild(div);
 }
 
-// ADD PROJECT
+// ADD PROJECTS
 function addProject(){
-    let proj = document.getElementById("newProject").value;
-    projects.push(proj);
-    localStorage.setItem("projects", JSON.stringify(projects));
-    display();
+    const val = document.getElementById("newProject").value;
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerText = val;
+    document.getElementById("projectList").appendChild(div);
 }
