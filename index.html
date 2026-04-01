@@ -8,25 +8,29 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
+<!-- Particles JS -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- PARTICLE BACKGROUND -->
+<div id="particles-js"></div>
+
+<!-- NAV -->
 <nav>
-    <h2>VIGNESH</h2>
+    <h2>Vigneshwaran</h2>
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#" onclick="openLogin()">Owner</a></li>
     </ul>
 </nav>
 
 <!-- HERO -->
 <section id="home" class="hero">
-    <h1>Hi, I'm <span>VIGNESHWARAN D</span></h1>
+    <h1>Hi, I'm <span>Vigneshwaran D</span></h1>
     <p id="typing"></p>
 </section>
 
@@ -35,45 +39,60 @@
     <h2>About Me</h2>
     <p>
         Register No: 821725148057 <br>
-        CSE (Artificial Intelligence & Machine Learning) <br>
-        Sir Issac Newton College of Engineering and Technology <br><br>
-        ⭐ Elite Student of the College <br>
-        🎓 Academic Excellence: All Pass
+        CSE (Artificial Intelligence and Machine Learning) <br>
+        Sir Issac Newton College of Engineering and Technology <br>
+        Elite Student of College
     </p>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
     <h2>Skills</h2>
-    <div id="skillList" class="grid"></div>
+    <div class="grid" id="skillList">
+        <div class="card">C Program</div>
+        <div class="card">C++</div>
+        <div class="card">Communication</div>
+        <div class="card">Leadership</div>
+        <div class="card">Teamwork</div>
+        <div class="card">Troubleshooter</div>
+    </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
     <h2>Projects</h2>
-    <div id="projectList" class="grid"></div>
+    <div class="grid" id="projectList">
+        <div class="card">Portfolio Website</div>
+        <div class="card">AI Chatbot</div>
+        <div class="card">Leave App</div>
+    </div>
 </section>
 
-<!-- LOGIN PANEL -->
-<div id="loginBox" class="login">
-    <h3>Owner Login</h3>
-    <input type="password" id="password" placeholder="Enter Password">
+<!-- ACADEMIC -->
+<section>
+    <h2>Academic Excellence</h2>
+    <p>All Pass ✅</p>
+</section>
+
+<!-- OWNER LOGIN -->
+<section>
+    <h2>Owner Login</h2>
+    <input type="password" id="adminPass" placeholder="Enter password">
     <button onclick="login()">Login</button>
-</div>
 
-<!-- ADMIN PANEL -->
-<div id="adminPanel" class="admin">
-    <h3>Update Content</h3>
+    <div id="adminPanel" style="display:none;">
+        <h3>Update Skills</h3>
+        <input type="text" id="newSkill">
+        <button onclick="addSkill()">Add</button>
 
-    <input id="newSkill" placeholder="Add Skill">
-    <button onclick="addSkill()">Add Skill</button>
-
-    <input id="newProject" placeholder="Add Project">
-    <button onclick="addProject()">Add Project</button>
-</div>
+        <h3>Update Projects</h3>
+        <input type="text" id="newProject">
+        <button onclick="addProject()">Add</button>
+    </div>
+</section>
 
 <footer>
-    <p>© 2026 VIGNESHWARAN D</p>
+    <p>© 2026 Vigneshwaran D</p>
 </footer>
 
 <script src="script.js"></script>
