@@ -1,9 +1,9 @@
-// Typing Effect
-const text = "AI Developer | Leader | Problem Solver";
+// Typing
+const text = "AI & Full Stack Developer";
 let i = 0;
 
-function typing() {
-    if (i < text.length) {
+function typing(){
+    if(i < text.length){
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
         setTimeout(typing, 50);
@@ -11,35 +11,52 @@ function typing() {
 }
 typing();
 
-// OWNER LOGIN
-function ownerLogin() {
-    let pass = prompt("Enter Password:");
-    if (pass === "admin123") {
-        alert("Edit Mode ON");
+// Default Data
+let skills = JSON.parse(localStorage.getItem("skills")) || 
+["C Program","C++","Communication","Leadership","Teamwork","Troubleshooter"];
 
-        document.getElementById("about").contentEditable = true;
-        document.getElementById("skills").contentEditable = true;
-        document.getElementById("projects").contentEditable = true;
+let projects = JSON.parse(localStorage.getItem("projects")) || 
+["Portfolio Website","AI Chatbot","Leave App"];
+
+// Display
+function display(){
+    let skillHTML = "";
+    skills.forEach(s => skillHTML += `<div class="card">${s}</div>`);
+    document.getElementById("skillList").innerHTML = skillHTML;
+
+    let projHTML = "";
+    projects.forEach(p => projHTML += `<div class="card">${p}</div>`);
+    document.getElementById("projectList").innerHTML = projHTML;
+}
+display();
+
+// LOGIN
+function openLogin(){
+    document.getElementById("loginBox").style.display="block";
+}
+
+function login(){
+    let pass = document.getElementById("password").value;
+    if(pass === "admin123"){
+        document.getElementById("adminPanel").style.display="block";
+        alert("Login Success");
     } else {
         alert("Wrong Password");
     }
 }
 
-// SCROLL ANIMATION
-const sections = document.querySelectorAll(".section");
+// ADD SKILL
+function addSkill(){
+    let skill = document.getElementById("newSkill").value;
+    skills.push(skill);
+    localStorage.setItem("skills", JSON.stringify(skills));
+    display();
+}
 
-window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            sec.style.opacity = 1;
-            sec.style.transform = "translateY(0)";
-        }
-    });
-});
-
-sections.forEach(sec => {
-    sec.style.opacity = 0;
-    sec.style.transform = "translateY(50px)";
-    sec.style.transition = "0.6s ease";
-});
+// ADD PROJECT
+function addProject(){
+    let proj = document.getElementById("newProject").value;
+    projects.push(proj);
+    localStorage.setItem("projects", JSON.stringify(projects));
+    display();
+}
