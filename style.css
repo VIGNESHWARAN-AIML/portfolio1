@@ -1,35 +1,48 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #020617, #0f172a);
+    background: linear-gradient(135deg, #0f172a, #020617);
     color: white;
+    margin: 0;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
 }
 
 /* HERO */
 .hero {
-    height: 100vh;
+    height: 90vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.hero span {
+    color: #38bdf8;
 }
 
 /* SECTION */
-.section {
+section {
     padding: 60px;
     text-align: center;
 }
@@ -41,34 +54,42 @@ nav {
     justify-content: center;
 }
 
-/* 3D CARD EFFECT */
+/* 3D CARD */
 .card {
-    background: rgba(255,255,255,0.08);
-    padding: 25px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
     margin: 15px;
     width: 220px;
     border-radius: 15px;
-    transition: transform 0.4s, box-shadow 0.4s;
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    transition: 0.4s;
 }
 
 .card:hover {
-    transform: perspective(800px) rotateY(10deg) rotateX(10deg) scale(1.05);
+    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-/* BUTTON */
-button {
-    padding: 8px 15px;
-    background: #38bdf8;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* LOGIN */
+.login, .admin {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-    nav {
-        flex-direction: column;
-        text-align: center;
-    }
+/* INPUT */
+input {
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
 }
